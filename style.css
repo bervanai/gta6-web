@@ -123,3 +123,4 @@ footer a{color:var(--muted)}
 .ctab table{display:table}
 @media(max-width:640px){.ctab{overflow-x:auto}.ctab table{font-size:.85rem}.ctab th,.ctab td{padding:8px}}
 @media(max-width:640px){.ctab th:nth-child(2),.ctab td:nth-child(2){display:none}}
+.countdown.big{margin:10px 0 22px}.countdown.big div{background:var(--card);border-color:var(--line)}

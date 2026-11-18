@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://berespa.com/sitemap.xml
+Sitemap: https://berespa.com/news-sitemap.xml
