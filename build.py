@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import os, json, shutil, html
 from datetime import date
-from content import ARTICLES, FAQ_HOME, SOURCES, UPDATED, COUNTRIES
+from content import ARTICLES, FAQ_HOME, SOURCES, UPDATED, COUNTRIES, COUNTRY_PAGES
+from datetime import datetime, timedelta
 
 DOMAIN = os.environ.get("DOMAIN", "berespa.com")
 BASE = f"https://{DOMAIN}"
@@ -9,6 +10,7 @@ SITE = "Guía GTA 6"
 TAG = "Guía de GTA 6 en español"
 ADSENSE = os.environ.get("ADSENSE_CLIENT", "ca-pub-4678189251158514")  # ej. ca-pub-1234567890123456
 OUT = "dist"
+CSS = open("static/style.css",encoding="utf-8").read().replace("\n","")
 RELEASE_ISO = "2026-11-19T00:00:00+01:00"
 
 MONTHS = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
@@ -38,6 +40,7 @@ def head(title, desc, path, og_type="website", jsonld=None):
 <meta name="theme-color" content="#0d0a14">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Guía GTA 6" href="/rss.xml">
 <meta property="og:locale" content="es_ES"><meta property="og:locale:alternate" content="es_MX"><meta property="og:locale:alternate" content="es_AR"><meta property="og:locale:alternate" content="es_CO">
 <meta property="og:site_name" content="{SITE}">
 <meta property="og:type" content="{og_type}">
@@ -47,7 +50,8 @@ def head(title, desc, path, og_type="website", jsonld=None):
 <meta property="og:image" content="{BASE}/og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/style.css">
+<style>{CSS}</style>
+<meta name="google-adsense-account" content="ca-pub-4678189251158514">
 {ld}{ads}
 </head>
 <body>
@@ -117,7 +121,9 @@ def country_table(limit=None):
         day = "18 nov" if off > 1 else ("19 nov" if es < 24 else "")
         esh = f"{es:02d}:00 ({day})"
         n = f' <small style="color:var(--orange)">· {note}</small>' if note else ""
-        rows.append(f'<tr><td>{flag} {esc(name)}{n}</td><td>00:00 del 19 nov</td><td>{esh}</td><td class="cc" data-off="{off}">–</td></tr>')
+        cp = next((c for c in COUNTRY_PAGES if name.startswith(c[1].split(' (')[0]) or (c[0]=='estados-unidos' and name.startswith('EE. UU.'))), None)
+        label = f'<a href="/a-que-hora-sale-gta-6-{cp[0]}/">{esc(name)}</a>' if cp else esc(name)
+        rows.append(f'<tr><td>{flag} {label}{n}</td><td>00:00 del 19 nov</td><td>{esh}</td><td class="cc" data-off="{off}">–</td></tr>')
     return ('<div class="ctab"><table><thead><tr><th>País</th><th>Hora local</th><th>Hora en España</th><th>Falta</th></tr></thead><tbody>'
             + "".join(rows) + '</tbody></table></div>')
 
@@ -129,6 +135,51 @@ if(s<=0){e.innerHTML='<b style="color:var(--teal)">¡Ya disponible!</b>';return}
 var d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);
 e.textContent=(d?d+'d ':'')+p(h)+':'+p(m)+':'+p(s%60)});setTimeout(t,1000)}t()})();
 </script>"""
+
+
+REL_UTC = datetime(2026,11,18,23,0)  # 00:00 hora peninsular = 23:00 UTC del 18
+def local_str(utc_dt, off):
+    t = utc_dt + timedelta(hours=off)
+    return f"{t:%H:%M} del {t.day} de noviembre"
+def midnight_utc(off): return datetime(2026,11,19) - timedelta(hours=off)
+
+def country_page(c):
+    slug,name,en,flag,off,zones = c
+    path = f"/a-que-hora-sale-gta-6-{slug}/"
+    cloud = datetime(2026,11,19,6,0)
+    es_eq = local_str(midnight_utc(off), 1)
+    title = f"¿A qué hora sale GTA 6 {en}? Hora exacta y cuenta atrás"
+    seo = f"A qué hora sale GTA 6 {en}: hora exacta, cuenta atrás y precarga (19 de noviembre)"
+    desc = f"GTA 6 sale {en} el 19 de noviembre de 2026 a las 00:00 hora local en PS5 y Xbox Series X|S. Cuenta atrás en directo, hora en la nube, precarga y precio."
+    zrows = "".join(f"<tr><td>{esc(z)}</td><td>00:00 del 19 de noviembre</td><td>{local_str(cloud,o)}</td><td>{local_str(midnight_utc(o),1)}</td></tr>" for z,o in (zones or [(name,off)]))
+    multi = (f"<p>{name} tiene varios husos horarios. En todos, GTA 6 se desbloquea a la medianoche de la hora local; la tabla muestra cuándo ocurre en cada zona.</p>" if len(zones)>1 else "")
+    price = ("<p>En España cuesta <strong>79,99 €</strong> la edición Standard y <strong>99,99 €</strong> la Ultimate.</p>" if slug=="espana" else
+             "<p>El precio oficial es de <strong>79,99 USD</strong> la edición Standard y <strong>99,99 USD</strong> la Ultimate. En PlayStation Store y Microsoft Store de tu región puede aparecer en moneda local; consulta tu tienda para el importe exacto.</p>")
+    faq = [(f"¿A qué hora sale GTA 6 {en}?", f"A las 00:00 hora local del jueves 19 de noviembre de 2026 en PS5 y Xbox Series X|S" + (f" (en la zona principal, que equivale a las {es_eq} en la España peninsular)." if slug!="espana" else ".")),
+           (f"¿A qué hora se puede jugar GTA 6 en Xbox Cloud {en}?", f"Xbox Cloud Gaming arranca a la vez en todo el mundo a las 06:00 UTC, que {en} son las {local_str(cloud,off)} (zona principal)."),
+           (f"¿Se puede precargar GTA 6 {en}?", "Sí. La precarga está abierta desde el 10 de noviembre para reservas digitales y para la edición física con código. El juego ocupa hasta 212 GB."),
+           (f"¿GTA 6 sale en PC {en}?", "No. GTA 6 sale solo en PS5 y Xbox Series X|S; la versión de PC no está anunciada.")]
+    body = f"""
+<h2>Cuenta atrás para GTA 6 {en}</h2>
+<div class="countdown big" data-off="{off}"><div><b class="d">–</b><small>días</small></div><div><b class="h">–</b><small>horas</small></div><div><b class="m">–</b><small>min</small></div><div><b class="s">–</b><small>seg</small></div></div>
+<p>Rockstar lanza GTA 6 a <strong>medianoche hora local</strong> en cada país. {en[0].upper()+en[1:]} el juego se desbloquea a las <strong>00:00 del jueves 19 de noviembre de 2026</strong> en PlayStation 5 y Xbox Series X|S.</p>
+<h2>Horarios de lanzamiento {en}</h2>
+{multi}
+<table><thead><tr><th>Zona</th><th>PS5 y Xbox Series</th><th>Xbox Cloud Gaming</th><th>Equivale en España</th></tr></thead><tbody>{zrows}</tbody></table>
+<p>Xbox Cloud Gaming es la excepción: se activa a la misma hora en todo el mundo (06:00 UTC), por eso en algunos lugares de América se puede jugar en la nube antes de la medianoche local.</p>
+<h2>Precio de GTA 6 {en}</h2>
+{price}
+<p>Toda la comparativa de ediciones y el bonus de reserva, en <a href="/precio-gta-6-ediciones/">precio y ediciones de GTA 6</a>.</p>
+<h2>Prepárate antes de la hora</h2>
+<ul><li>Haz la precarga: ocupa hasta 212 GB (<a href="/tamano-descarga-precarga-gta-6/">guía paso a paso</a>).</li>
+<li>Revisa el <a href="/checklist-lanzamiento-gta-6/">checklist de lanzamiento</a>.</li>
+<li>Consulta la hora en el resto de países en la <a href="/hora-lanzamiento-gta-6-por-paises/">cuenta atrás mundial</a>.</li></ul>
+"""
+    return path, title, seo, desc, body, faq
+
+CD_JS = """<script>(function(){document.querySelectorAll('.countdown.big').forEach(function(el){var off=+el.dataset.off,t=Date.UTC(2026,10,19)-off*3600000;
+function p(n){return n<10?'0'+n:n}function k(){var s=Math.floor((t-Date.now())/1000);if(s<=0){el.innerHTML='<span class="live">¡GTA 6 ya está disponible!</span>';return}
+el.querySelector('.d').textContent=Math.floor(s/86400);el.querySelector('.h').textContent=p(Math.floor(s%86400/3600));el.querySelector('.m').textContent=p(Math.floor(s%3600/60));el.querySelector('.s').textContent=p(s%60);setTimeout(k,1000)}k()})})();</script>"""
 
 def write(path, content):
     d = os.path.join(OUT, path.strip("/"))
@@ -157,7 +208,7 @@ def build():
                "contentRating":"PEGI 18","url":"https://www.rockstargames.com/VI",
                "offers":[{"@type":"Offer","name":"Standard Edition","price":"79.99","priceCurrency":"EUR"},
                          {"@type":"Offer","name":"Ultimate Edition","price":"99.99","priceCurrency":"EUR"}]}
-    t = "GTA 6: fecha, hora en España, precio, personajes y mapa | Guía GTA 6"
+    t = "GTA 6: cuándo sale y a qué hora en España y Latinoamérica, precio y más"
     d = "Todo sobre GTA 6 en español: sale el 19 de noviembre de 2026 a las 00:00 en España. Precio (79,99 €), ediciones, tamaño (212 GB), personajes, mapa de Leonida, PC y online."
     h = head(t, d, "/", jsonld=[site_ld, org_ld, game_ld, faq_ld(FAQ_HOME)])
     h += f"""<section class="hero"><div class="sun"></div>{PALMS}<div class="wrap">
@@ -179,6 +230,7 @@ def build():
 <section class="block"><div class="wrap">
 <h2 class="sec">Cuenta atrás de GTA 6 por países</h2><p class="sub">GTA 6 se desbloquea a las 00:00 hora local de cada país. <a href="/hora-lanzamiento-gta-6-por-paises/">Ver todos los países y detalles →</a></p>
 <div class="prose">{country_table()}</div>
+<p class="sub" style="margin-top:14px">Guías por país: {" · ".join(f'<a href="/a-que-hora-sale-gta-6-{c[0]}/">{c[3]} {c[1]}</a>' for c in COUNTRY_PAGES)}</p>
 </div></section>
 <section class="block" style="padding-top:0"><div class="wrap">
 <h2 class="sec">Guías y noticias de GTA 6</h2><p class="sub">Información contrastada y actualizada, sin rumores disfrazados de noticias.</p>
@@ -231,6 +283,26 @@ document.getElementById("cd-s").textContent=p(s%60);setTimeout(tick,1000)}}tick(
 {"".join(f'<li><a href="/{r["slug"]}/">{esc(r["title"])}</a></li>' for r in related)}
 </ul></div></aside>
 </div></div>{COUNTRY_JS if '{{COUNTRY_TABLE}}' in a['body'] else ''}"""
+        write(path, h + foot())
+
+    # ---------- PÁGINAS POR PAÍS ----------
+    country_urls=[]
+    for c in COUNTRY_PAGES:
+        path,title,seo,desc,body,faq = country_page(c)
+        country_urls.append((path,title))
+        art_ld = {"@context":"https://schema.org","@type":"Article","headline":title,"description":desc,"inLanguage":"es","datePublished":UPDATED,"dateModified":UPDATED,
+                  "mainEntityOfPage":BASE+path,"image":BASE+"/og.png","author":{"@type":"Organization","name":SITE,"url":BASE+"/sobre-nosotros/"},
+                  "publisher":{"@type":"Organization","name":SITE,"logo":{"@type":"ImageObject","url":BASE+"/apple-touch-icon.png"}}}
+        bc=[("Inicio","/"),("Hora por países","/hora-lanzamiento-gta-6-por-paises/"),(c[1],path)]
+        others = "".join(f'<li><a href="/a-que-hora-sale-gta-6-{o[0]}/">{o[3]} GTA 6 {o[2]}</a></li>' for o in COUNTRY_PAGES if o[0]!=c[0])
+        h = head(seo, desc, path, "article", [art_ld, crumbs_ld(bc), faq_ld(faq)])
+        h += f"""<div class="wrap"><div class="crumbs"><a href="/">Inicio</a> › <a href="/hora-lanzamiento-gta-6-por-paises/">Hora por países</a> › {esc(c[1])}</div>
+<div class="art"><article><header><span class="kicker">{c[3]} {esc(c[1])}</span><h1>{esc(title)}</h1>
+<div class="meta">Por la redacción de {SITE} · Actualizado el <time datetime="{UPDATED}">{fecha(UPDATED)}</time></div></header>
+<div class="tldr"><strong>En resumen:</strong> GTA 6 sale {c[2]} el <strong>jueves 19 de noviembre de 2026 a las 00:00 hora local</strong> en PS5 y Xbox Series X|S.</div>
+{ad_slot()}<div class="prose">{body}{ad_slot()}{faq_html(faq)}
+<p class="note">Fuentes: {" · ".join(f'<a href="{u}" rel="nofollow noopener" target="_blank">{esc(n)}</a>' for n,u in SOURCES)}. Horarios calculados con la zona horaria vigente el 19 de noviembre de 2026.</p></div></article>
+<aside><div class="box"><h4>GTA 6 en otros países</h4><ul>{others}</ul></div></aside></div></div>{CD_JS}"""
         write(path, h + foot())
 
     # ---------- NOTICIAS ----------
@@ -302,13 +374,21 @@ document.getElementById("cd-s").textContent=p(s%60);setTimeout(tick,1000)}}tick(
     with open(os.path.join(OUT,"404.html"),"w",encoding="utf-8") as f: f.write(hh+foot())
 
     # ---------- SEO FILES ----------
-    urls = ["/","/noticias/"] + [f"/{a['slug']}/" for a in ARTICLES] + ["/sobre-nosotros/","/contacto/"]
+    urls = ["/","/noticias/"] + [f"/{a['slug']}/" for a in ARTICLES] + [p for p,_ in country_urls] + ["/sobre-nosotros/","/contacto/"]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for u in urls:
         sm += f"<url><loc>{BASE}{u}</loc><lastmod>{UPDATED}</lastmod><changefreq>daily</changefreq><priority>{'1.0' if u=='/' else '0.8'}</priority></url>\n"
     sm += "</urlset>\n"
     open(os.path.join(OUT,"sitemap.xml"),"w").write(sm)
-    open(os.path.join(OUT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
+
+    news = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n'
+    for a in ARTICLES:
+        news += f"<url><loc>{BASE}/{a['slug']}/</loc><news:news><news:publication><news:name>{SITE}</news:name><news:language>es</news:language></news:publication><news:publication_date>{UPDATED}T20:00:00+01:00</news:publication_date><news:title>{esc(a['title'])}</news:title></news:news></url>\n"
+    news += "</urlset>\n"
+    open(os.path.join(OUT,"news-sitemap.xml"),"w").write(news)
+    items = "".join(f"<item><title>{esc(a['title'])}</title><link>{BASE}/{a['slug']}/</link><guid>{BASE}/{a['slug']}/</guid><description>{esc(a['desc'])}</description><pubDate>Wed, 18 Nov 2026 20:00:00 +0100</pubDate></item>" for a in ARTICLES)
+    open(os.path.join(OUT,"rss.xml"),"w").write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{SITE}</title><link>{BASE}/</link><description>{TAG}</description><language>es</language>{items}</channel></rss>')
+    open(os.path.join(OUT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/news-sitemap.xml\n")
     pub = ADSENSE.replace("ca-","") if ADSENSE else ""
     open(os.path.join(OUT,"ads.txt"),"w").write(
         f"google.com, {pub}, DIRECT, f08c47fec0942fa0\n" if pub else "# Añade aquí tu línea de AdSense: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0\n")

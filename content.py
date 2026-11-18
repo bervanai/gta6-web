@@ -525,3 +525,17 @@ faq=[
 ("¿Qué país juega primero a GTA 6?","Nueva Zelanda, que se desbloquea a las 12:00 del 18 de noviembre en hora peninsular española."),
 ],
 ))
+
+# Páginas por país: slug, nombre, "en X", bandera, desfase principal, [(zona, desfase)]
+COUNTRY_PAGES = [
+("espana","España","en España","🇪🇸",1,[("Península y Baleares",1),("Canarias",0)]),
+("mexico","México","en México","🇲🇽",-6,[("Centro (CDMX, Guadalajara, Monterrey)",-6),("Quintana Roo (Cancún)",-5),("Pacífico (Sinaloa, Sonora, Nayarit, Baja California Sur)",-7),("Baja California (Tijuana)",-8)]),
+("argentina","Argentina","en Argentina","🇦🇷",-3,[]),
+("colombia","Colombia","en Colombia","🇨🇴",-5,[]),
+("chile","Chile","en Chile","🇨🇱",-3,[("Chile continental",-3),("Isla de Pascua",-5)]),
+("peru","Perú","en Perú","🇵🇪",-5,[]),
+("venezuela","Venezuela","en Venezuela","🇻🇪",-4,[]),
+("ecuador","Ecuador","en Ecuador","🇪🇨",-5,[("Ecuador continental",-5),("Galápagos",-6)]),
+("uruguay","Uruguay","en Uruguay","🇺🇾",-3,[]),
+("estados-unidos","Estados Unidos","en Estados Unidos","🇺🇸",-5,[("Este (Nueva York, Miami)",-5),("Centro (Chicago, Houston)",-6),("Montaña (Denver)",-7),("Pacífico (Los Ángeles)",-8)]),
+]
