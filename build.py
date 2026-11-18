@@ -7,7 +7,7 @@ DOMAIN = os.environ.get("DOMAIN", "berespa.com")
 BASE = f"https://{DOMAIN}"
 SITE = "Guía GTA 6"
 TAG = "Guía de GTA 6 en español"
-ADSENSE = os.environ.get("ADSENSE_CLIENT", "")  # ej. ca-pub-1234567890123456
+ADSENSE = os.environ.get("ADSENSE_CLIENT", "ca-pub-4678189251158514")  # ej. ca-pub-1234567890123456
 OUT = "dist"
 RELEASE_ISO = "2026-11-19T00:00:00+01:00"
 
