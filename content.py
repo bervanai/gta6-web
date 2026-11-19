@@ -445,7 +445,9 @@ faq=[
 ]
 
 FAQ_HOME = [
-("¿Cuándo sale GTA 6?","El jueves 19 de noviembre de 2026, en PS5 y Xbox Series X|S. En España se desbloquea a las 00:00 hora peninsular."),
+("¿Ya ha salido GTA 6?","Sí. GTA 6 salió el 19 de noviembre de 2026 en PS5 y Xbox Series X|S."),
+("¿Qué nota tiene GTA 6?","Un 99 sobre 100 en Metacritic, a partir de unas 150 críticas."),
+("¿Cuánto dura GTA 6?","Unas 80 horas para la historia con objetivos opcionales según Rockstar; 50 horas o más solo con misiones principales."),
 ("¿Cuánto cuesta GTA 6?","79,99 € la edición Standard y 99,99 € la Ultimate en España."),
 ("¿Sale GTA 6 en PS4, Xbox One o PC?","No sale en PS4 ni Xbox One. La versión de PC no está anunciada."),
 ("¿Cuánto ocupa GTA 6?","Hasta 212 GB. La precarga está disponible desde el 10 de noviembre."),
@@ -539,3 +541,239 @@ COUNTRY_PAGES = [
 ("uruguay","Uruguay","en Uruguay","🇺🇾",-3,[]),
 ("estados-unidos","Estados Unidos","en Estados Unidos","🇺🇸",-5,[("Este (Nueva York, Miami)",-5),("Centro (Chicago, Houston)",-6),("Montaña (Denver)",-7),("Pacífico (Los Ángeles)",-8)]),
 ]
+
+UPDATED = "2026-11-19"
+
+NEW_ARTICLES = [
+dict(
+slug="analisis-gta-6-notas-metacritic",
+cat="Análisis", cover="c1", cover_txt="Metacritic 99",
+title="GTA 6: notas de la crítica y Metacritic (99). Qué dicen los análisis",
+seo_title="Análisis de GTA 6: nota en Metacritic (99) y qué dice la crítica",
+desc="GTA 6 tiene un 99 en Metacritic con más de 140 análisis. Resumimos qué destacan los medios, qué critican y si merece la pena.",
+tldr="GTA 6 ha debutado con un <strong>99 en Metacritic</strong> (\"aclamación universal\") a partir de unas 150 críticas. La mayoría lo considera la obra más ambiciosa de Rockstar; las pegas apuntan a un tramo final de historia más lento y a una jugabilidad base que sigue siendo familiar.",
+body="""
+<h2>Nota de GTA 6 en Metacritic</h2>
+<p>Tras levantarse el embargo de análisis, GTA 6 ha alcanzado una <strong>puntuación media de 99 sobre 100 en Metacritic</strong>, con la etiqueta de "aclamación universal". La nota se basa en alrededor de 150 críticas, la gran mayoría de la versión de PS5. La nota de los usuarios todavía no está disponible.</p>
+<p>Para ponerlo en contexto, es una de las puntuaciones más altas de la historia del agregador, al nivel de los clásicos más laureados.</p>
+
+<h2>Qué destaca la crítica</h2>
+<ul>
+<li><strong>El mundo abierto.</strong> Es el elogio más repetido: Leonida se describe como uno de los mundos más detallados, vivos y reactivos jamás creados, con multitudes, discotecas y actividades por todas partes.</li>
+<li><strong>Jason y Lucia.</strong> Varios medios coinciden en que son los protagonistas mejor escritos de la saga, y en que su relación de pareja aporta un peso emocional nuevo a la historia.</li>
+<li><strong>Más pausado y realista.</strong> Kotaku lo define como una mezcla del ritmo y las mecánicas de vida cotidiana de Red Dead Redemption 2 con el tono de película de crímenes de GTA IV y GTA V. Hay que planificar más: se empieza atracando tiendas pequeñas y se va escalando hasta golpes mayores como bancos.</li>
+<li><strong>Realismo bien medido.</strong> GamingBible, tras más de 70 horas, explica que Rockstar ha sido selectiva con el realismo para que sume a la experiencia sin entorpecerla; por ejemplo, los coches ligeros se deforman con facilidad y un motor dañado empieza a fallar.</li>
+<li><strong>Rendimiento.</strong> Screen Rant señala que el juego se mantiene fluido incluso con la enorme cantidad de elementos en pantalla.</li>
+</ul>
+
+<h2>Lo que menos gusta</h2>
+<ul>
+<li><strong>La historia se ralentiza en su parte final</strong>, según Screen Rant, aunque el reparto y la acción mantienen el interés.</li>
+<li><strong>La base jugable es conocida.</strong> Algunas críticas apuntan que, pese al salto en escala y detalle, el núcleo del juego construye sobre GTA V más que reinventarlo.</li>
+<li>Quien prefiera el caos más despreocupado de entregas anteriores puede echar de menos ese estilo, como reconoce TheGamer aunque considere esta entrega mejor en todos los frentes.</li>
+</ul>
+
+<h2>¿Merece la pena GTA 6?</h2>
+<p>Con este consenso crítico, la respuesta para quien disfrute de los mundos abiertos es claramente sí. Si buscas acción inmediata sin pausas, ten en cuenta que el ritmo es más pausado que en GTA V. Antes de comprar, revisa el <a href="/precio-gta-6-ediciones/">precio y las ediciones</a> y cuánto <a href="/cuanto-dura-gta-6/">dura la historia</a>.</p>
+""",
+faq=[
+("¿Qué nota tiene GTA 6 en Metacritic?","Un 99 sobre 100, con la etiqueta de aclamación universal, a partir de unas 150 críticas."),
+("¿Cuáles son los puntos débiles de GTA 6 según la crítica?","Un tramo final de historia más lento y una jugabilidad base que sigue siendo familiar respecto a GTA V."),
+("¿GTA 6 es mejor que GTA 5?","La mayoría de análisis lo considera superior en mundo, personajes y profundidad, aunque con un ritmo más pausado."),
+],
+sources=[("Metacritic – Grand Theft Auto VI","https://www.metacritic.com/game/grand-theft-auto-vi/"),("Kotaku – Review","https://kotaku.com/grand-theft-auto-6-the-kotaku-review-2000757842"),("Screen Rant – Review","https://screenrant.com/grand-theft-auto-6-review/"),("GamingBible – Review","https://www.gamingbible.com/reviews/gta-6-review-389961-20261117"),("TheGamer – Review","https://www.thegamer.com/grand-theft-auto-6-review/")],
+),
+dict(
+slug="cuanto-dura-gta-6",
+cat="Guía", cover="c2", cover_txt="¿80 horas?",
+title="¿Cuánto dura GTA 6? Horas de la historia y del 100%",
+seo_title="Cuánto dura GTA 6: horas de la historia principal y para completarlo al 100%",
+desc="La historia de GTA 6 ronda las 50-80 horas según Rockstar y los análisis, y completarlo al 100% puede pasar de 200. Comparativa con GTA 5 y RDR2.",
+tldr="Un responsable de Rockstar tardó <strong>unas 80 horas</strong> en terminar la historia con algunos objetivos opcionales. Si solo vas a por las misiones principales, cuenta con <strong>50 horas o más</strong>, y el <strong>100%</strong> puede superar las <strong>200 horas</strong>.",
+body="""
+<h2>Duración de la historia de GTA 6</h2>
+<p>La cifra más fiable viene del propio estudio: <strong>Rob Nelson</strong>, codirector de Rockstar North, contó que tardó <strong>alrededor de 80 horas</strong> en completar la historia principal junto con algunos objetivos opcionales que tienen consecuencias narrativas. No es, por tanto, una duración "solo historia" pura.</p>
+<p>Otras informaciones previas al lanzamiento situaban la campaña principal en torno a las 50 horas, y los analistas que lo han terminado para su análisis hablan de partidas de entre 70 y más de 130 horas, según cuánto se entretuvieran con el contenido secundario.</p>
+
+<h2>Tabla de duración estimada</h2>
+<table>
+<thead><tr><th>Estilo de juego</th><th>Duración aproximada</th></tr></thead>
+<tbody>
+<tr><td>Solo misiones principales</td><td>50 horas o más</td></tr>
+<tr><td>Historia + objetivos opcionales</td><td>Unas 80 horas (cifra de Rockstar)</td></tr>
+<tr><td>100% / Platino</td><td>200 horas o más (estimación)</td></tr>
+</tbody>
+</table>
+
+<h2>Comparativa con otros juegos de Rockstar</h2>
+<table>
+<thead><tr><th>Juego</th><th>Historia principal</th><th>Historia + extras</th></tr></thead>
+<tbody>
+<tr><td>GTA IV</td><td>≈27 h</td><td>≈40 h</td></tr>
+<tr><td>GTA V</td><td>≈32 h</td><td>≈51 h</td></tr>
+<tr><td>Red Dead Redemption 2</td><td>≈51 h</td><td>≈85 h</td></tr>
+<tr><td><strong>GTA 6</strong></td><td><strong>50+ h</strong></td><td><strong>≈80 h</strong></td></tr>
+</tbody>
+</table>
+<p>Con cualquiera de las cifras, GTA 6 es <strong>el GTA más largo de la saga</strong> y, muy probablemente, el juego más extenso de Rockstar.</p>
+
+<h2>Cómo organizarte</h2>
+<ul>
+<li>Jugando 2 horas al día, la historia con algo de contenido secundario te llevará más de un mes.</li>
+<li>El ritmo es más pausado que en GTA V (más planificación, más vida cotidiana), así que no te agobies por avanzar rápido.</li>
+<li>Mira nuestros <a href="/consejos-empezar-gta-6/">consejos para empezar</a> para no perder tiempo en las primeras horas.</li>
+</ul>
+""",
+faq=[
+("¿Cuántas horas dura GTA 6?","Unas 80 horas para la historia con algunos objetivos opcionales, según Rockstar; 50 horas o más solo con misiones principales."),
+("¿Cuánto se tarda en completar GTA 6 al 100%?","Las estimaciones apuntan a más de 200 horas."),
+("¿GTA 6 es más largo que Red Dead Redemption 2?","Sí, según las cifras disponibles es el juego más largo de Rockstar."),
+],
+sources=[("TechRadar – GTA 6 80 horas","https://techradar.com/gaming/gta-6-will-be-a-massive-game-and-rockstars-longest-yet-as-the-studio-confirms-it-can-take-up-to-80-hours-to-beat"),("Dexerto – Time to beat","https://www.dexerto.com/wikis/gta-6/time-to-beat/"),("Esquire India – How long is GTA 6","https://www.esquireindia.co.in/tech-and-auto/gaming/how-long-is-gta-6-story-length-and-time-to-beat")],
+),
+dict(
+slug="problemas-lanzamiento-gta-6-psn-codigos-parche",
+cat="Soporte", cover="c3", cover_txt="Errores y parche",
+title="Problemas en el lanzamiento de GTA 6: caída de PSN, códigos y parche 1.002",
+seo_title="GTA 6 no funciona: caída de PSN, códigos sin canjear, parche y soluciones",
+desc="Caída de PlayStation Network, códigos de la edición física que fallan, actualización obligatoria de PS5 y parche 1.002.000. Qué ha pasado y cómo solucionarlo.",
+tldr="El lanzamiento ha tenido <strong>caídas de PlayStation Network</strong>, problemas para <strong>canjear códigos</strong> de la edición física y conexiones intermitentes a los servicios de Rockstar. El juego en sí no tiene bugs graves documentados. Hay un <strong>parche 1.002.000</strong> (≈1 GB en PS5, ≈2 GB en Xbox).",
+body="""
+<h2>Qué problemas ha habido</h2>
+<h3>Caída de PlayStation Network</h3>
+<p>PlayStation confirmó el miércoles 18 por la tarde una caída importante de su plataforma online, horas antes del lanzamiento, con dificultades para iniciar juegos, aplicaciones y funciones de red. Los portales de incidencias registraron miles de reportes en EE. UU. y Reino Unido.</p>
+<h3>Actualización obligatoria de PS5</h3>
+<p>Para jugar a GTA 6 en PS5 hace falta instalar una actualización de sistema obligatoria que corrige problemas de seguridad. Si el juego no arranca, compruébalo primero.</p>
+<h3>Códigos de la edición física</h3>
+<p>Como la caja no trae disco sino un código, ha habido quejas de jugadores que no podían canjearlo por la saturación de las tiendas, e incluso algún caso aislado de caja sin código. También se reportaron problemas en Xbox para canjear códigos.</p>
+<h3>Servidores de Rockstar</h3>
+<p>Algunos jugadores no pudieron entrar al juego de inmediato porque los servicios online de Rockstar respondían de forma intermitente por la cantidad de consolas conectándose a la vez. No fue una caída total: buena parte de los jugadores entró sin problema.</p>
+
+<h2>Parche 1.002.000</h2>
+<p>El juego ha recibido una actualización <strong>1.002.000</strong> de alrededor de <strong>1 GB en PS5 y 2 GB en Xbox</strong>. Rockstar no ha publicado notas detalladas del parche.</p>
+
+<h2>Soluciones paso a paso</h2>
+<ol>
+<li><strong>Comprueba el estado del servicio</strong> en la web de estado de PlayStation Network o de Xbox. Si hay caída, toca esperar.</li>
+<li><strong>Actualiza el sistema</strong> de la consola y el juego a la última versión.</li>
+<li><strong>Reinicia la consola</strong> por completo (no desde el modo reposo).</li>
+<li><strong>Código que no se canjea:</strong> espera unos minutos y vuelve a intentarlo; si la caja no trae código o es ilegible, reclama en la tienda donde la compraste.</li>
+<li><strong>Descarga atascada:</strong> pausa y reanuda, o borra la descarga y vuelve a iniciarla. Asegúrate de tener espacio suficiente (el juego ocupa hasta 212 GB; ver <a href="/tamano-descarga-precarga-gta-6/">guía de tamaño</a>).</li>
+<li><strong>Licencia (el juego aparece bloqueado):</strong> en PS5, <em>Ajustes → Usuarios y cuentas → Otros → Restaurar licencias</em>.</li>
+</ol>
+<p>Actualizaremos este artículo con nuevos parches y problemas conocidos.</p>
+""",
+faq=[
+("¿Por qué no funciona GTA 6?","En la mayoría de casos por saturación de PlayStation Network o de los servicios de Rockstar, o por falta de la actualización obligatoria del sistema."),
+("¿Qué incluye el parche 1.002.000 de GTA 6?","Pesa alrededor de 1 GB en PS5 y 2 GB en Xbox; Rockstar no ha publicado notas detalladas."),
+("Mi caja de GTA 6 no trae código, ¿qué hago?","Reclama en la tienda donde la compraste con el ticket: la edición física solo incluye un código de descarga."),
+],
+sources=[("Axios – PlayStation outage","https://www.axios.com/2026/11/18/gta-6-playstation-psn-servers"),("Cybernews – PSN outage","https://cybernews.com/tech/playstation-outage-gta-6-release/"),("GTA 6 Glitches tracker","https://gtavi-glitches.com/"),("EGamers – Launch problems","https://egamers.io/gta-6-launch-problems-tracked-ps5-sign-in-errors-faulty-box-codes-and-patch-status/")],
+),
+dict(
+slug="ventas-gta-6-records",
+cat="Noticias", cover="c4", cover_txt="+17 M copias",
+title="Ventas de GTA 6: récords, copias vendidas y comparación con GTA 5",
+seo_title="Cuántas copias ha vendido GTA 6: ventas, récords y comparación con GTA 5",
+desc="GTA 6 supera los 17 millones de copias digitales estimadas antes de su lanzamiento y apunta a batir el récord de GTA 5 (11,21 millones el primer día).",
+tldr="Según las estimaciones de Sensor Tower, GTA 6 alcanzó unos <strong>17 millones de copias digitales</strong> y <strong>1.650 millones de dólares</strong> antes de su lanzamiento. El récord a batir es el de GTA 5: <strong>11,21 millones de copias</strong> y <strong>815,7 millones de dólares</strong> el primer día. Take-Two aún no ha dado cifras oficiales.",
+body="""
+<h2>Cuánto ha vendido GTA 6</h2>
+<p>Take-Two y Rockstar todavía no han publicado cifras oficiales de ventas. Lo que hay son <strong>estimaciones de firmas de análisis</strong>:</p>
+<ul>
+<li><strong>Sensor Tower</strong> estimaba el 18 de noviembre unos <strong>17,07 millones de copias digitales</strong> y <strong>1.650 millones de dólares</strong> en ingresos, sin contar las ventas en caja.</li>
+<li><strong>M Science</strong> proyectaba unos 26 millones de copias hasta el día del lanzamiento incluido.</li>
+<li><strong>Oppenheimer</strong> preveía alrededor de 1.850 millones de dólares en los tres primeros días.</li>
+</ul>
+
+<h2>El récord de GTA 5</h2>
+<p>El listón lo puso el propio GTA 5 en 2013: según Guinness World Records, vendió <strong>11,21 millones de copias</strong> y generó <strong>815,7 millones de dólares</strong> en sus primeras 24 horas, y alcanzó los 1.000 millones en tres días. Las reservas estimadas de GTA 6 ya superan esas cifras del primer día, por lo que todo apunta a un nuevo récord del lanzamiento más grande de la historia del entretenimiento.</p>
+
+<h2>Comparativa</h2>
+<table>
+<thead><tr><th></th><th>GTA 5 (2013)</th><th>GTA 6 (2026, estimación)</th></tr></thead>
+<tbody>
+<tr><td>Copias</td><td>11,21 M (primer día, oficial)</td><td>≈17 M digitales antes del lanzamiento</td></tr>
+<tr><td>Ingresos</td><td>815,7 M$ (primer día)</td><td>≈1.650 M$ antes del lanzamiento</td></tr>
+</tbody>
+</table>
+<p>Actualizaremos este artículo en cuanto Take-Two comunique las cifras oficiales.</p>
+""",
+faq=[
+("¿Cuántas copias ha vendido GTA 6?","No hay cifra oficial; Sensor Tower estimó unos 17 millones de copias digitales antes del lanzamiento."),
+("¿Ha batido GTA 6 el récord de GTA 5?","Las estimaciones de reservas ya superan los 11,21 millones de copias del primer día de GTA 5, pero falta la confirmación oficial."),
+],
+sources=[("Wolf's Gaming Blog – Sensor Tower tracker","https://wolfsgamingblog.com/2026/11/18/gta-6-isnt-even-out-yet-and-its-pre-orders-have-reportedly-topped-gta-5s-day-one-sales/"),("The Pricer – How much money has GTA 6 made","https://www.thepricer.org/how-much-money-has-gta-6-made/"),("Covers – Sales predictions","https://www.covers.com/entertainment/gta-6-sales-predictions"),("GameRiv – Guinness records","https://gameriv.com/gta-6-could-shatter-gta-5s-six-guinness-world-records/")],
+),
+dict(
+slug="novedades-jugables-gta-6",
+cat="Jugabilidad", cover="c5", cover_txt="Novedades",
+title="Novedades jugables de GTA 6: policía, robos, perfil criminal y más",
+seo_title="Novedades de GTA 6: nuevo sistema de policía, robo de coches, perfil criminal y economía",
+desc="Así cambia la jugabilidad en GTA 6: la policía recuerda tu cara y tu ropa, robos de coches por categorías, perfil criminal, peristas, relación entre Jason y Lucia y combate no letal.",
+tldr="GTA 6 apuesta por un enfoque más realista: <strong>la policía recuerda tu cara, ropa y coche</strong>, el dinero escasea y hay que <strong>vender lo robado a peristas</strong>, existe un <strong>perfil criminal</strong> que cambia cómo reacciona la ciudad y la <strong>relación entre Jason y Lucia</strong> depende de tus decisiones.",
+body="""
+<h2>Las grandes novedades</h2>
+<h3>1. Una policía que te recuerda</h3>
+<p>Las patrullas solo acuden si un ciudadano denuncia el delito o salta una alarma. Además, <strong>memorizan tu cara, tu ropa y el vehículo</strong> que usaste, así que para despistarles no basta con huir: tendrás que cambiarte de ropa. Según las informaciones previas, el nivel de búsqueda vuelve a llegar a <strong>6 estrellas</strong>.</p>
+<h3>2. El maletero como armario</h3>
+<p>El maletero de tu coche personal guarda <strong>conjuntos de ropa completos y armas</strong>. Llevar ropa de recambio es clave para escapar cuando la policía ya te ha identificado.</p>
+<h3>3. Robo de coches por categorías</h3>
+<p>Los vehículos se clasifican por categorías y una app del móvil permite <strong>escanear su valor y sus medidas de seguridad</strong>. Los coches de alta gama exigen herramientas específicas, como clonadores de llaves.</p>
+<h3>4. Economía ajustada y peristas</h3>
+<p>El dinero escasea, así que cada golpe se planifica. Las joyas o los coches de lujo hay que venderlos a <strong>peristas</strong>, y el estado del objeto importa: un coche dañado vale mucho menos.</p>
+<h3>5. Perfil criminal</h3>
+<p>El juego registra tu comportamiento general en el mapa sin etiquetas morales rígidas. Gestos como evitar muertes innecesarias influyen en cómo te tratan los ciudadanos y en el ambiente de la ciudad. La violencia obligatoria de las misiones principales no cuenta.</p>
+<h3>6. Ciudadanos que responden</h3>
+<p>Para hablar con la gente hay que <strong>guardar el arma</strong>. Puedes saludar, insultar, calmar o provocar, y algunos ciudadanos van armados y reaccionan con violencia si los sigues o los espías demasiado.</p>
+<h3>7. La relación entre Jason y Lucia</h3>
+<p>La confianza entre los protagonistas sube o baja según decisiones cotidianas: comer juntos, hacer atracos en pareja o responder a sus mensajes. Ese vínculo cambia cómo se desarrollan algunos acontecimientos. El cambio entre personajes depende de la historia, no está disponible en cualquier momento.</p>
+<h3>8. Escondites vivos</h3>
+<p>Los escondites funcionan como campamentos dinámicos al estilo Red Dead Redemption 2: pasan personajes secundarios, puedes cambiar tu aspecto en el espejo y organizar salidas.</p>
+<h3>9. Combate no letal</h3>
+<p>Disparar a las extremidades incapacita a los enemigos y disparar a su arma los desarma. Los disparos destacados activan una cámara lenta cinematográfica.</p>
+<h3>10. Móvil integrado</h3>
+<p>Los menús ya no flotan sobre la pantalla: la cámara se acerca a la mano del protagonista al sacar el móvil, y puedes consultar redes sociales para investigar tu entorno.</p>
+<h3>11. Coches más realistas</h3>
+<p>Los análisis destacan que los vehículos se comportan casi como en la realidad: los coches ligeros se arrugan en los choques y un motor muy dañado empieza a fallar y perder velocidad.</p>
+<p>Pon todo esto en práctica con nuestros <a href="/consejos-empezar-gta-6/">consejos para empezar en GTA 6</a>.</p>
+""",
+faq=[
+("¿Cómo funciona la policía en GTA 6?","Solo acude si alguien denuncia o salta una alarma, y recuerda tu cara, ropa y vehículo, así que conviene cambiarse de ropa para despistarla."),
+("¿Se puede cambiar de personaje cuando quieras en GTA 6?","No en cualquier momento: el cambio entre Jason y Lucia depende de la historia."),
+("¿Cuántas estrellas de búsqueda tiene GTA 6?","Según las informaciones disponibles, vuelve a haber hasta 6 estrellas."),
+],
+sources=[("Cultura Geek – Claves del mundo abierto","https://culturageek.com.ar/gta-6-claves-mundo-abierto/"),("Vandal – Novedades de GTA 6","https://vandal.elespanol.com/guias/guia-grand-theft-auto-vi-trucos-consejos-y-secretos/novedades"),("GamingBible – Review","https://www.gamingbible.com/reviews/gta-6-review-389961-20261117")],
+),
+dict(
+slug="consejos-empezar-gta-6",
+cat="Guía", cover="c6", cover_txt="Consejos",
+title="Consejos para empezar GTA 6: 10 claves para tus primeras horas",
+seo_title="Consejos para empezar en GTA 6: 10 trucos para las primeras horas",
+desc="Diez consejos prácticos para empezar con buen pie en GTA 6: escapar de la policía, ganar dinero, robar coches sin dañarlos y cuidar la relación entre Jason y Lucia.",
+tldr="En GTA 6 compensa jugar con cabeza: <strong>lleva ropa de recambio en el maletero</strong>, evita testigos, <strong>no dañes lo que vas a vender</strong>, escanea los coches antes de robarlos y cuida la relación entre Jason y Lucia.",
+body="""
+<p>Estos consejos se basan en las mecánicas confirmadas por Rockstar y los análisis. Los iremos ampliando a medida que la comunidad descubra más trucos.</p>
+<h2>10 consejos para tus primeras horas</h2>
+<ol>
+<li><strong>Lleva siempre ropa de recambio en el maletero.</strong> La policía recuerda tu atuendo: cambiarte es la forma más rápida de que dejen de buscarte.</li>
+<li><strong>Evita testigos y alarmas.</strong> Las patrullas solo llegan si alguien denuncia o salta una alarma. Un golpe limpio es un golpe sin persecución.</li>
+<li><strong>Cambia también de coche.</strong> El vehículo usado en un delito también queda registrado. Ten un coche "limpio" para después.</li>
+<li><strong>Escanea antes de robar.</strong> Usa la app del móvil para ver el valor y la seguridad de un coche. No pierdas el tiempo con vehículos baratos o que no puedes abrir.</li>
+<li><strong>Cuida lo que vas a vender.</strong> Los peristas pagan según el estado: conduce con cuidado si el coche robado es tu botín.</li>
+<li><strong>Planifica cada golpe.</strong> El dinero escasea al principio. Empieza con objetivos pequeños y escala poco a poco hacia golpes mayores.</li>
+<li><strong>Guarda el arma para hablar.</strong> Con el arma en la mano no podrás interactuar con la gente, y algunos ciudadanos van armados y reaccionan mal.</li>
+<li><strong>Cuida la relación de la pareja.</strong> Responder a los mensajes, comer juntos o atracar en equipo mejora la confianza entre Jason y Lucia, y eso cambia cómo se desarrollan algunos acontecimientos.</li>
+<li><strong>No mates por matar.</strong> Tu perfil criminal influye en cómo te trata la ciudad. Usa el combate no letal (extremidades y armas) cuando puedas.</li>
+<li><strong>Tómatelo con calma.</strong> La historia ronda las 50-80 horas y el ritmo es más pausado que en GTA V. Explora Leonida, que es lo más elogiado del juego.</li>
+</ol>
+<p>¿Quieres entender cada sistema en detalle? Lee las <a href="/novedades-jugables-gta-6/">novedades jugables de GTA 6</a>.</p>
+""",
+faq=[
+("¿Cómo escapar de la policía en GTA 6?","Rompe el contacto visual y cambia de ropa (y de coche), porque la policía recuerda tu atuendo y tu vehículo."),
+("¿Cómo ganar dinero al principio en GTA 6?","Planificando golpes pequeños y vendiendo el botín en buen estado a los peristas, sin dañar coches ni objetos."),
+],
+sources=[("Cultura Geek – Claves del mundo abierto","https://culturageek.com.ar/gta-6-claves-mundo-abierto/"),("Kotaku – Review","https://kotaku.com/grand-theft-auto-6-the-kotaku-review-2000757842")],
+),
+]
+ARTICLES[:0] = NEW_ARTICLES

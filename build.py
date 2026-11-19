@@ -17,8 +17,8 @@ MONTHS = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","sep
 def fecha(iso):
     y,m,d = map(int, iso.split("-")); return f"{d} de {MONTHS[m-1]} de {y}"
 
-NAV = [("/","Inicio"),("/hora-lanzamiento-gta-6-por-paises/","Hora por países"),("/precio-gta-6-ediciones/","Precio"),
-       ("/personajes-gta-6/","Personajes"),("/mapa-gta-6-leonida/","Mapa"),("/noticias/","Noticias")]
+NAV = [("/","Inicio"),("/consejos-empezar-gta-6/","Consejos"),("/analisis-gta-6-notas-metacritic/","Análisis"),("/precio-gta-6-ediciones/","Precio"),
+       ("/mapa-gta-6-leonida/","Mapa"),("/noticias/","Noticias")]
 
 def esc(s): return html.escape(s, quote=True)
 
@@ -208,35 +208,36 @@ def build():
                "contentRating":"PEGI 18","url":"https://www.rockstargames.com/VI",
                "offers":[{"@type":"Offer","name":"Standard Edition","price":"79.99","priceCurrency":"EUR"},
                          {"@type":"Offer","name":"Ultimate Edition","price":"99.99","priceCurrency":"EUR"}]}
-    t = "GTA 6: cuándo sale y a qué hora en España y Latinoamérica, precio y más"
-    d = "Todo sobre GTA 6 en español: sale el 19 de noviembre de 2026 a las 00:00 en España. Precio (79,99 €), ediciones, tamaño (212 GB), personajes, mapa de Leonida, PC y online."
+    t = "GTA 6: análisis (99 Metacritic), consejos, duración, problemas y guías en español"
+    d = "Todo sobre GTA 6 en español: nota de la crítica (99 en Metacritic), cuánto dura, consejos para empezar, novedades jugables, problemas del lanzamiento, precio y mapa."
     h = head(t, d, "/", jsonld=[site_ld, org_ld, game_ld, faq_ld(FAQ_HOME)])
     h += f"""<section class="hero"><div class="sun"></div>{PALMS}<div class="wrap">
 <span class="kicker">Actualizado {fecha(UPDATED)}</span>
-<h1>Todo sobre <span>GTA 6</span>, explicado en español</h1>
-<p class="lead">Grand Theft Auto VI sale el <strong>jueves 19 de noviembre de 2026</strong> en PS5 y Xbox Series X|S. En España se desbloquea a las <strong>00:00</strong>.</p>
+<h1><span>GTA 6</span> ya está aquí: guías, análisis y todo lo que necesitas</h1>
+<p class="lead">Grand Theft Auto VI salió el <strong>19 de noviembre de 2026</strong> en PS5 y Xbox Series X|S con un <strong>99 en Metacritic</strong>. Notas, duración, consejos, problemas y soluciones.</p>
 <div class="countdown" id="cd" aria-live="polite">
 <div><b id="cd-d">–</b><small>días</small></div><div><b id="cd-h">–</b><small>horas</small></div>
 <div><b id="cd-m">–</b><small>min</small></div><div><b id="cd-s">–</b><small>seg</small></div></div>
-<a class="btn" href="/fecha-lanzamiento-gta-6/">Hora exacta de lanzamiento</a><a class="btn ghost" href="/precio-gta-6-ediciones/">Precio y ediciones</a>
+<a class="btn" href="/consejos-empezar-gta-6/">Consejos para empezar</a><a class="btn ghost" href="/analisis-gta-6-notas-metacritic/">Notas de la crítica</a>
 </div></section>
 <div class="wrap"><div class="facts">
-<div class="fact"><small>Lanzamiento</small><strong>19 nov 2026 · 00:00</strong></div>
-<div class="fact"><small>Plataformas</small><strong>PS5 · Xbox Series X|S</strong></div>
+<div class="fact"><small>Metacritic</small><strong>99 / 100</strong></div>
+<div class="fact"><small>Duración</small><strong>50–80 h historia</strong></div>
 <div class="fact"><small>Precio</small><strong>79,99 € / 99,99 €</strong></div>
 <div class="fact"><small>Tamaño</small><strong>Hasta 212 GB</strong></div>
 <div class="fact"><small>Edad</small><strong>PEGI 18</strong></div>
 </div></div>
 <section class="block"><div class="wrap">
-<h2 class="sec">Cuenta atrás de GTA 6 por países</h2><p class="sub">GTA 6 se desbloquea a las 00:00 hora local de cada país. <a href="/hora-lanzamiento-gta-6-por-paises/">Ver todos los países y detalles →</a></p>
-<div class="prose">{country_table()}</div>
-<p class="sub" style="margin-top:14px">Guías por país: {" · ".join(f'<a href="/a-que-hora-sale-gta-6-{c[0]}/">{c[3]} {c[1]}</a>' for c in COUNTRY_PAGES)}</p>
-</div></section>
-<section class="block" style="padding-top:0"><div class="wrap">
 <h2 class="sec">Guías y noticias de GTA 6</h2><p class="sub">Información contrastada y actualizada, sin rumores disfrazados de noticias.</p>
 <div class="grid">{"".join(card(a) for a in ARTICLES)}</div>
 {ad_slot()}
 </div></section>
+<section class="block" style="padding-top:0"><div class="wrap">
+<h2 class="sec">Lanzamiento de GTA 6 por países</h2><p class="sub">GTA 6 se desbloqueó a las 00:00 hora local de cada país. <a href="/hora-lanzamiento-gta-6-por-paises/">Ver todos los países y detalles →</a></p>
+<div class="prose">{country_table()}</div>
+<p class="sub" style="margin-top:14px">Guías por país: {" · ".join(f'<a href="/a-que-hora-sale-gta-6-{c[0]}/">{c[3]} {c[1]}</a>' for c in COUNTRY_PAGES)}</p>
+</div></section>
+
 <section class="block" style="padding-top:0"><div class="wrap prose" style="max-width:820px">
 <h2 class="sec">GTA 6 en 30 segundos</h2>
 <p><strong>Grand Theft Auto VI</strong> es la nueva entrega de la saga de Rockstar Games, la primera en 13 años desde GTA V. La historia sigue a <a href="/personajes-gta-6/">Jason Duval y Lucia Caminos</a>, una pareja criminal en el estado de <a href="/mapa-gta-6-leonida/">Leonida</a>, inspirado en Florida, con Vice City como gran ciudad. Lucia es la primera protagonista femenina jugable de un GTA principal.</p>
@@ -277,7 +278,7 @@ document.getElementById("cd-s").textContent=p(s%60);setTimeout(tick,1000)}}tick(
 <div class="prose">{a['body'].replace('{{COUNTRY_TABLE}}', country_table())}
 {ad_slot()}
 {faq_html(a['faq'])}
-<p class="note">Fuentes: {" · ".join(f'<a href="{u}" rel="nofollow noopener" target="_blank">{esc(n)}</a>' for n,u in SOURCES)}. Datos comprobados el {fecha(UPDATED)}; actualizamos este artículo cuando hay novedades oficiales.</p>
+<p class="note">Fuentes: {" · ".join(f'<a href="{u}" rel="nofollow noopener" target="_blank">{esc(n)}</a>' for n,u in a.get('sources',SOURCES))}. Datos comprobados el {fecha(UPDATED)}; actualizamos este artículo cuando hay novedades oficiales.</p>
 </div></article>
 <aside><div class="box"><h4>Más sobre GTA 6</h4><ul>
 {"".join(f'<li><a href="/{r["slug"]}/">{esc(r["title"])}</a></li>' for r in related)}
@@ -382,8 +383,8 @@ document.getElementById("cd-s").textContent=p(s%60);setTimeout(tick,1000)}}tick(
     open(os.path.join(OUT,"sitemap.xml"),"w").write(sm)
 
     news = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n'
-    for a in ARTICLES:
-        news += f"<url><loc>{BASE}/{a['slug']}/</loc><news:news><news:publication><news:name>{SITE}</news:name><news:language>es</news:language></news:publication><news:publication_date>{UPDATED}T20:00:00+01:00</news:publication_date><news:title>{esc(a['title'])}</news:title></news:news></url>\n"
+    for a in [x for x in ARTICLES if x.get('sources')]:
+        news += f"<url><loc>{BASE}/{a['slug']}/</loc><news:news><news:publication><news:name>{SITE}</news:name><news:language>es</news:language></news:publication><news:publication_date>{UPDATED}T16:30:00+01:00</news:publication_date><news:title>{esc(a['title'])}</news:title></news:news></url>\n"
     news += "</urlset>\n"
     open(os.path.join(OUT,"news-sitemap.xml"),"w").write(news)
     items = "".join(f"<item><title>{esc(a['title'])}</title><link>{BASE}/{a['slug']}/</link><guid>{BASE}/{a['slug']}/</guid><description>{esc(a['desc'])}</description><pubDate>Wed, 18 Nov 2026 20:00:00 +0100</pubDate></item>" for a in ARTICLES)
