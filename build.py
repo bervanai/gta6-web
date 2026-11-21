@@ -338,13 +338,13 @@ document.getElementById("cd-s").textContent=p(s%60);setTimeout(tick,1000)}}tick(
 
     page("/contacto/", "Contacto", f"Cómo contactar con {SITE}.", """
 <p>Para correcciones, sugerencias o cualquier consulta, escríbenos a:</p>
-<p style="font-size:1.2rem"><strong>[EMAIL DE CONTACTO]</strong></p>
+<p style="font-size:1.2rem"><strong><a href="mailto:legionthunder2@gmail.com">legionthunder2@gmail.com</a></strong></p>
+<p>Puedes escribirnos para corregir un dato, proponer un tema, colaborar o cualquier consulta sobre la web o la publicidad que aparece en ella.</p>
 <p>Respondemos normalmente en 48-72 horas laborables.</p>""")
 
     page("/aviso-legal/", "Aviso legal", "Aviso legal e información del titular del sitio web.", f"""
-<p>En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:</p>
-<ul><li><strong>Titular:</strong> [NOMBRE Y APELLIDOS]</li><li><strong>NIF:</strong> [NIF]</li>
-<li><strong>Domicilio:</strong> [DIRECCIÓN]</li><li><strong>Email:</strong> [EMAIL DE CONTACTO]</li><li><strong>Sitio web:</strong> {DOMAIN}</li></ul>
+<p>En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se facilitan los datos de contacto de este sitio web:</p>
+<ul><li><strong>Sitio web:</strong> {DOMAIN}</li><li><strong>Email de contacto:</strong> <a href="mailto:legionthunder2@gmail.com">legionthunder2@gmail.com</a></li></ul>
 <h2>Objeto</h2><p>{SITE} es una web informativa sobre videojuegos, en particular sobre Grand Theft Auto VI. Es una web de fans no oficial.</p>
 <h2>Propiedad intelectual e industrial</h2><p>Los textos e ilustraciones de esta web son originales. Grand Theft Auto, GTA, Grand Theft Auto VI, Rockstar Games y sus logotipos son marcas de Take-Two Interactive Software, Inc., y se mencionan con fines exclusivamente informativos. Esta web no está patrocinada ni respaldada por ellos.</p>
 <h2>Responsabilidad</h2><p>El titular procura que la información sea exacta y esté actualizada, pero no garantiza la ausencia de errores ni se responsabiliza de los contenidos de webs enlazadas.</p>
@@ -352,13 +352,13 @@ document.getElementById("cd-s").textContent=p(s%60);setTimeout(tick,1000)}}tick(
 
     page("/privacidad/", "Política de privacidad", "Cómo tratamos tus datos personales.", f"""
 <p>Última actualización: {fecha(UPDATED)}.</p>
-<h2>Responsable del tratamiento</h2><p>[NOMBRE Y APELLIDOS], NIF [NIF], email [EMAIL DE CONTACTO].</p>
+<h2>Responsable del tratamiento</h2><p>El titular de {DOMAIN}, contactable en <a href="mailto:legionthunder2@gmail.com">legionthunder2@gmail.com</a>.</p>
 <h2>Qué datos tratamos</h2>
 <ul><li><strong>Si nos escribes por email:</strong> tu dirección y el contenido del mensaje, solo para responderte (base legal: tu consentimiento y nuestro interés legítimo en atender consultas).</li>
 <li><strong>Publicidad:</strong> esta web puede mostrar anuncios de Google AdSense. Google y sus socios pueden usar cookies e identificadores para mostrar anuncios, personalizados o no, según el consentimiento que des en el aviso de cookies. Más información en <a href="https://policies.google.com/technologies/ads?hl=es" rel="nofollow noopener" target="_blank">cómo usa Google las cookies en publicidad</a>.</li>
 <li><strong>Registros técnicos:</strong> el proveedor de alojamiento puede registrar datos técnicos (como la IP) por seguridad.</li></ul>
 <h2>Conservación</h2><p>Conservamos los datos el tiempo necesario para la finalidad para la que se recogieron.</p>
-<h2>Tus derechos</h2><p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a [EMAIL DE CONTACTO]. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+<h2>Tus derechos</h2><p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:legionthunder2@gmail.com">legionthunder2@gmail.com</a>. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
 <h2>Transferencias internacionales</h2><p>Algunos proveedores (alojamiento, Google) pueden tratar datos fuera del Espacio Económico Europeo, con las garantías previstas en el RGPD.</p>""", index=False)
 
     page("/cookies/", "Política de cookies", "Información sobre las cookies que utiliza esta web.", f"""
